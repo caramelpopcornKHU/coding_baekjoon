@@ -3,11 +3,10 @@ import java.io.*;
 
 public class Main {
 
-	public int solution(String n) {
+	public int solution(int n) {
 		int answer = 0;
-		int nInt = Integer.parseInt(n);
 
-		for (int i = 1; i < nInt; i++) {
+		for (int i = 1; i < n; i++) {
 
 			int mock = i;
 			int sum = 0;
@@ -16,8 +15,8 @@ public class Main {
 				sum += mock % 10;
 				mock /= 10;
 			}
-
-			if (nInt == sum + i)
+			
+			if(sum + i == n)
 				return i;
 
 		}
@@ -31,7 +30,7 @@ public class Main {
 
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
-		String n = st.nextToken();
+		int n = Integer.parseInt(st.nextToken());
 
 		System.out.println(T.solution(n));
 
