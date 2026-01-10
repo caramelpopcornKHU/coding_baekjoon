@@ -6,6 +6,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		Main T = new Main();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		int n = Integer.parseInt(st.nextToken());
@@ -19,8 +20,10 @@ public class Main {
 		Arrays.sort(arr);
 
 		for (int x : arr) {
-			System.out.println(x);
+			bw.write(String.valueOf(x));
+			bw.newLine();
 		}
+		bw.flush();
 	}
 
 }
