@@ -31,9 +31,12 @@ public class Main {
 			arr[i] = br.readLine();
 		}
 
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		for (String x : arr) {
-			System.out.println(isPalindrome(x) + " " + count);
+			bw.write(isPalindrome(x) + " " + count);
+			bw.write("\n");
 		}
+		bw.flush();
 
 //		System.out.println("ABBA: " + isPalindrome("ABBA"));
 //		System.out.println("ABC: " + isPalindrome("ABC"));
