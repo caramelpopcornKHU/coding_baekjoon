@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 
@@ -11,19 +10,19 @@ class Node {
 		this.data = data;
 	}
 
-	public void add(int a) {
-		if (a > this.data) {
-			if (rt == null) {
-				rt = new Node(a);
+	public void add(int input) {
+
+		if (input < this.data) {
+			if (this.lt == null) {
+				this.lt = new Node(input);
 			} else {
-				rt.add(a);
+				this.lt.add(input);
 			}
-		}
-		if (a < this.data) {
-			if (lt == null) {
-				lt = new Node(a);
+		} else if (input > this.data) {
+			if (this.rt == null) {
+				this.rt = new Node(input);
 			} else {
-				lt.add(a);
+				this.rt.add(input);
 			}
 		}
 	}
@@ -32,34 +31,30 @@ class Node {
 
 public class Main {
 
-	Node root;
+	static Node root;
 
-	public void DFS(Node n) {
-		
-		if(n==null) {
+	public void binarySearch(Node v) {
+		if(v == null)
 			return;
-		} else {
-			DFS(n.lt);
-			DFS(n.rt);
-			System.out.println(n.data);
-		}
 		
+		binarySearch(v.lt);
+		binarySearch(v.rt);
+		System.out.println(v.data);
 	}
 
 	public static void main(String[] args) throws IOException {
 		Main T = new Main();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		T.root = new Node(Integer.parseInt(br.readLine()));
+		String s = br.readLine();
+		root = new Node(Integer.parseInt(s));
 
-		String input = "";
-
-		while ((input = br.readLine()) != null && !input.isEmpty()) {
-			int n = Integer.parseInt(input);
-			T.root.add(n);
+		while ((s = br.readLine()) != null && !s.isEmpty()) {
+			int data = Integer.parseInt(s);
+			root.add(data);
 		}
 
-		T.DFS(T.root);
+		T.binarySearch(root);
 
 	}
 }
