@@ -1,4 +1,3 @@
-
 import java.io.*;
 import java.util.*;
 
@@ -8,7 +7,9 @@ public class Main {
 		Main T = new Main();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-
+		
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
 
@@ -31,10 +32,14 @@ public class Main {
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				System.out.print(arr1[i][j]+arr2[i][j] + " ");
+				bw.write(arr1[i][j]+arr2[i][j] + " ");
 			}
-			System.out.println();
+			bw.write("\n");
 		}
-
+		
+		bw.flush();
+		
+		br.close();
+		bw.close();
 	}
 }
