@@ -7,34 +7,33 @@ public class Main {
 
 	public void solution(String num) {
 
-		Deque<Character> stack = new ArrayDeque<>();
 		char[] arr = num.toCharArray();
 
-		for (int i = 0; i < N; i++) {
-			char c = arr[i];
-			
-			while(!stack.isEmpty() && (stack.peek() < c) && (K > 0)) {
-				stack.pop();
+		Deque<Character> stack = new ArrayDeque<>();
+
+		for (char c : arr) {
+
+			while (!stack.isEmpty() && stack.peek() < c && K > 0) {
 				K--;
+				stack.pop();
 			}
-			
 			stack.push(c);
 
 		}
 		
-		while(K > 0) {
+		while(K>0) {
 			K--;
 			stack.pop();
-		}
+			}
 		
 		StringBuilder sb = new StringBuilder();
+		
 		for(char c : stack) {
 			sb.append(c);
 		}
 		
 		sb.reverse();
 		System.out.println(sb.toString());
-		
 
 	}
 
